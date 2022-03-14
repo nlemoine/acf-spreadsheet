@@ -1,0 +1,17 @@
+.jexcel_content {
+  box-shadow: none !important;
+}
+table.jexcel {
+  width: 100%;
+}
+.jexcel_row {
+  // display: none;
+}
+.jeditor-toolbar .jtoolbar-item {
+  display: none;
+}
+.jeditor-toolbar .jtoolbar-item:nth-child(4),
+.jeditor-toolbar .jtoolbar-item:nth-child(5),
+.jeditor-toolbar .jtoolbar-item:nth-child(6) {
+  display: block;
+}

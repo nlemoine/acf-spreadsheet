@@ -1,0 +1,17 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^22.2.1",
+    "assets-webpack-plugin": "^7.1.1",
+    "mini-css-extract-plugin": "^2.5.3",
+    "webpack-manifest-plugin": "^4.1.1"
+  },
+  "dependencies": {
+    "jspreadsheet-ce": "^4.10.1"
+  }
+}
