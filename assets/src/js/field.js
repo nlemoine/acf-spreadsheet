@@ -14,7 +14,10 @@ import "jspreadsheet-ce/dist/jspreadsheet.datatables.css";
     },
     initialize: function () {
       this.$input = this.$input();
-      const data = JSON.parse(this.$input.val());
+      let data = [];
+      try {
+        data = JSON.parse(this.$input.val());
+      } catch (e) {}
 
       let columns = [];
       if (data.length) {
