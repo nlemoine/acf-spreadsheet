@@ -20,6 +20,7 @@ import "jspreadsheet-ce/dist/jspreadsheet.datatables.css";
       } catch (e) {
         data = [];
       }
+      data = Array.isArray(data) ? data : [];
 
       let columns = [];
       if (data.length) {
