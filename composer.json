@@ -1,6 +1,6 @@
 {
-  "name": "hellonico/acf-color-palette",
-  "description": "A Gutenberg like color palette field for ACF.",
+  "name": "hellonico/acf-spreadsheet",
+  "description": "A tiny spreadsheet field for ACF.",
   "type": "wordpress-plugin",
   "keywords": [
     "acf",
