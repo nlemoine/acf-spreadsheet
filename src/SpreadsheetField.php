@@ -202,7 +202,7 @@ class SpreadsheetField extends \acf_field
      */
     public function load_value($value, $post_id, $field)
     {
-        return json_decode(json_encode(maybe_unserialize($value)));
+        return maybe_unserialize($value);
     }
 
     /**
@@ -296,4 +296,3 @@ class SpreadsheetField extends \acf_field
         $this->input_admin_enqueue_scripts();
     }
 }
-
