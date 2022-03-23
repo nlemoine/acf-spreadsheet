@@ -67,15 +67,17 @@ class SpreadsheetField extends \acf_field
         <div class="acf-spreadsheet-control"></div>
         <?php
             $field['value'] = json_encode($field['value']);
-            $field['class'] = $field['class'] . ' acf-spreadsheet-input acf-hidden';
+            $field['class'] = $field['class'] . ' acf-spreadsheet-input acf-idden';
 			$atts  = [];
-			$keys  = ['id', 'class', 'name', 'value'];
+			$keys  = ['id', 'class', 'name', 'value',];
 			// atts (value="123")
 			foreach ( $keys as $k ) {
 				if ( isset( $field[ $k ] ) ) {
 					$atts[ $k ] = $field[ $k ];
 				}
 			}
+
+            $atts['rows'] = '40';
 
 			// remove empty atts
 			$atts = acf_clean_atts( $atts );
@@ -215,12 +217,16 @@ class SpreadsheetField extends \acf_field
      */
     public function update_value($value, $post_id, $field)
     {
+        $value = \json_decode(wp_unslash($value), true);
+
+        // Remove empty rows
         if(is_array($value)) {
-            return $value;
-        }
-        $value_decoded = \json_decode(wp_unslash($value), true);
-        if(is_array($value_decoded)) {
-            $value = array_values(array_filter($value_decoded, function($row) {
+            // Reindex
+            $value = array_map(function($v) {
+                return is_array($v) ? array_values($v) : $v;
+            }, $value);
+            // Remove empty rows
+            $value = array_values(array_filter($value, function($row) {
                 return !empty(array_filter($row));
             }));
         }
