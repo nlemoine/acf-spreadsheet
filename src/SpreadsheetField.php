@@ -217,6 +217,9 @@ class SpreadsheetField extends \acf_field
      */
     public function update_value($value, $post_id, $field)
     {
+        if(!is_string($value)) {
+            return null;
+        }
         $value = \json_decode(wp_unslash($value), true);
 
         // Remove empty rows
